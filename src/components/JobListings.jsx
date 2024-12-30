@@ -14,7 +14,8 @@ const JobListings = ({ isHome = false }) => {
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
-        setJobs(data);
+        // Ensure you're accessing the `jobs` array
+        setJobs(data.jobs || []); // Use `data.jobs` if it exists, otherwise use an empty array
       } catch (error) {
         console.log("Error Passing Data", error);
       } finally {
